@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviourPun
 {    
     public bool moveDir = false;
     public float moveSpeed = 4f;
@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
         {
             PhotonView target = collision.gameObject.GetComponent<PhotonView>();
             if (target.IsMine){
-                target.RPC("ReduceHealth", RpcTarget.All, bulletDamage);
+                target.RPC("TakeDamage", RpcTarget.All, bulletDamage);
             }
         }
         Destroy(gameObject);
