@@ -41,6 +41,15 @@ public class MyCharacterController : MonoBehaviour
         attackAnimator.SetTrigger("IsAttack");
     }
 
+    public bool IsDead()
+    {
+        if(currentHealth <= 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
     
     [PunRPC]
     void TakeDamage(int damage)

@@ -10,7 +10,6 @@ public class Bullet : MonoBehaviourPun
     public int bulletDamage;
     public float destroyTime = 2f;
     PhotonView view;
-
     void Update(){
         transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
         Destroy(gameObject, destroyTime);
@@ -23,6 +22,12 @@ public class Bullet : MonoBehaviourPun
             if (target.IsMine){
                 target.RPC("TakeDamage", RpcTarget.All, bulletDamage);
             }
+        }
+
+        if (collision.gameObject.tag == "Monster")
+        {
+            PhotonView target = collision.gameObject.GetComponent<PhotonView>();
+            target.RPC("TakeDamage", RpcTarget.All, bulletDamage);
         }
         Destroy(gameObject);
     }

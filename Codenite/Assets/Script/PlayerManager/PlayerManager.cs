@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class PlayerManager : MonoBehaviour
         HealthBar.SetHealth(Player.currentHealth);
     }
 
-    private void Update() 
+    private void Update()
     {
         if(view.IsMine){
             movement.x = Input.GetAxisRaw("Horizontal");
@@ -53,9 +54,12 @@ public class PlayerManager : MonoBehaviour
         HealthBar.SetHealth(Player.currentHealth);
     }
 
-    void FixedUpdate() {
-        if(view.IsMine){
-    
-        }
+    private void LateUpdate() {
+        if(Player.IsDead() && view.IsMine)
+        {
+            Debug.Log("i'm DEAD!!!");
+            SceneManager.LoadScene("Lobby");
+            PhotonNetwork.LeaveRoom();  // why get error ?
+        }    
     }
 }
