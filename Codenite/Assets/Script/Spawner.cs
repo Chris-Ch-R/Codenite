@@ -37,6 +37,7 @@ public class Spawner : MonoBehaviour
                 {
                     Vector2 randomMonsterPosition = new Vector2(availablePlaces[position].x + 0.5f, availablePlaces[position].y + 0.5f);
                     GameObject monster = SpawnObject(MonsterPrefab, randomMonsterPosition);
+                    
                     Placed.Add(availablePlaces[position]);
                     i++;
 

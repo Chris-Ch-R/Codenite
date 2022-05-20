@@ -20,6 +20,8 @@ public class MonsterManager : MonoBehaviour
         view = GetComponent<PhotonView>();
         PlayerNameText.text = monster.monsterName;
         HealthBar.SetHealth(monster.currentHealth);
+
+        monster.inti();
     }
 
     private void Update()

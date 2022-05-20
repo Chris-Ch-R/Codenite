@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Photon.Pun;
 
 public class MonsterController : MonoBehaviour
@@ -20,8 +21,19 @@ public class MonsterController : MonoBehaviour
     [Header("Character weapon")]
     public Animator attackAnimator;
     private Vector2 spawnPosition;
+    private NavMeshAgent agent;
     private void Start()
     {
+        inti();
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+    }
+
+    public void inti()
+    {
+        transform.rotation = Quaternion.identity;
+
         currentHealth = maxHealth;
         currentSpeed = moveSpeed;
         rb = GetComponent<Rigidbody2D>();
@@ -100,7 +112,7 @@ public class MonsterController : MonoBehaviour
         GameObject target = FindClosestTarget("Player");
         if (target)
         {
-            MoveTo(target.transform.position);
+            agent.SetDestination(target.transform.position);
             Rotation(target.transform.position);
         }
     }
@@ -108,7 +120,7 @@ public class MonsterController : MonoBehaviour
     public void goHome()
     {
         ResetSpeed();
-        MoveTo(spawnPosition);
+        agent.SetDestination(spawnPosition);
         Rotation(spawnPosition);
     }
 
