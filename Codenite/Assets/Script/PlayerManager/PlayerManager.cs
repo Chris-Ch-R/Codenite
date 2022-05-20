@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
-using Photon.Realtime;
 using UnityEngine.SceneManagement;
-
 public class PlayerManager : MonoBehaviour
 {
     [Header("UI Manager")]
@@ -58,8 +56,16 @@ public class PlayerManager : MonoBehaviour
         if(Player.IsDead() && view.IsMine)
         {
             Debug.Log("i'm DEAD!!!");
-            SceneManager.LoadScene("Lobby");
-            PhotonNetwork.LeaveRoom();  // why get error ?
+            DisconnectRoom();
         }    
+    }
+
+    public void DisconnectRoom()
+    {
+        Debug.Log("in DisconnectRoom Func");
+        // PhotonNetwork.LeaveRoom();
+        // while(PhotonNetwork.InRoom)
+        //     return ;
+        // SceneManager.LoadScene("Lobby");
     }
 }

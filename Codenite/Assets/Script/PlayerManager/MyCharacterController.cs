@@ -9,6 +9,7 @@ public class MyCharacterController : MonoBehaviour
 
     [Header("Character Info")]
     public float moveSpeed = 5f;
+    float currentSpeed;
     public int maxHealth = 100;
     public int currentHealth;
 
@@ -21,11 +22,12 @@ public class MyCharacterController : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody2D>(); // this line error
         currentHealth = maxHealth;
+        currentSpeed = moveSpeed;
     }
 
     public void Movement(Vector2 movement)
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * currentSpeed * Time.fixedDeltaTime);
     }
 
     public void Rotation(Vector2 mousePos)
@@ -50,6 +52,15 @@ public class MyCharacterController : MonoBehaviour
         return false;
     }
 
+    public void SetSpeed(float speed)
+    {
+        currentSpeed = speed;
+    }
+
+    public void ResetSpeed()
+    {
+        currentSpeed = moveSpeed;
+    }
     
     [PunRPC]
     void TakeDamage(int damage)

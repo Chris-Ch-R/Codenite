@@ -152,7 +152,8 @@ MonoBehaviour:
   moveSpeed: 3
   maxHealth: 50
   currentHealth: 0
-  chaseRadius: 3
+  chaseRadius: 11
+  moveRadius: 6
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
