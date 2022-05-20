@@ -7,6 +7,8 @@ using Photon.Realtime;
 
 public class PlayerManager : MonoBehaviour
 {
+    [SerializeField] private UI_Inventory uiInventory;
+    private Inventory inventory ;
     [Header("UI Manager")]
     public GameObject PlayerCamera;
     public GameObject MinimapCamera;
@@ -18,8 +20,11 @@ public class PlayerManager : MonoBehaviour
     PhotonView view;
     Vector2 movement;
     Vector2 mousePos;
+
     private void Start()
     {
+        inventory = new Inventory();
+        uiInventory.SetInventory(inventory);
         view = GetComponent<PhotonView>();
         if(view.IsMine)
         {

@@ -1,4 +1,6 @@
 using UnityEngine;
+using System;
+using System.Collections.Generic;
 
 public class AnswerManager : MonoBehaviour {
     
@@ -17,14 +19,14 @@ public class AnswerManager : MonoBehaviour {
         }
     }
 
-    private string[] anss;
+    private List<int> ansList = new List<int>();
 
-    public string[] getAnswer() {
-        return anss;
+    public List<int> getAnswer() {
+        return ansList;
     }
 
-    public void setAnswer(string[] ans) {
-        this.anss = ans;
+    public void setAnswer(int ans) {
+        this.ansList.Add(ans);
     }
 
 }

@@ -2,31 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class TestInventory 
 {
-    // public static Inventory Instance { get; private set;}
+    public List<Item> itemList = new List<Item>();
 
-    private List<Item> itemList;
-
-    public Inventory(){
-        itemList = new List<Item>();
-
-        Item item1 = new Item {id =  0, itemType = Item.ItemType.Common , amount = 1 };
-        Item item2 = new Item {id =  1, itemType = Item.ItemType.Common , amount = 1 };
-        Item item3 = new Item {id =  2, itemType =Item.ItemType.Rare , amount = 1 };
-        Item item4 = new Item {id =  3, itemType =Item.ItemType.Rare , amount = 1 };
-        Item item5 = new Item {id =  4, itemType =Item.ItemType.Rare , amount = 1 };
-        AddItem(item1);
-        AddItem(item2);
-        AddItem(item3);
-        AddItem(item4);
-        AddItem(item5);
-
-
-        
+    private static TestInventory instance;
+   
+    public static TestInventory Instance {
+        get {
+            if (instance == null) {
+                instance = new TestInventory ();
+            }
+            return instance;
+        }
     }
 
-    public void AddItem(Item item)
+
+
+    public void setItemList(Item item)
     {
         itemList.Add(item);
 
