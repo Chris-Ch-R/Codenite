@@ -56,6 +56,7 @@ public class PlayerManager : MonoBehaviour
         if(Player.IsDead() && view.IsMine)
         {
             Debug.Log("i'm DEAD!!!");
+            gameObject.SetActive(false);
             DisconnectRoom();
         }    
     }
