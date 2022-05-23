@@ -23,7 +23,15 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        inventory = new Inventory();
+        inventory = Inventory.Instance;
+        Item item1 = new Item {id =  0, itemType = Item.ItemType.Common , value = "count=1" };
+        Item item2 = new Item {id =  1, itemType =Item.ItemType.Rare , value = "count++" };
+        Item item3 = new Item {id =  2, itemType =Item.ItemType.Epic , value = "count<=10" };
+        // inventory.AddItem(item1);
+        inventory.AddItem(item1);
+        inventory.AddItem(item2);
+        inventory.AddItem(item3);
+        // inventory.AddItem(item5);
         uiInventory.SetInventory(inventory);
         view = GetComponent<PhotonView>();
         if(view.IsMine)

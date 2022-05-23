@@ -14,9 +14,14 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,IE
 
     private Vector3 startPosition;
 
+    int ansBfCount;
+
     private void Awake(){
         if( rectTransform == null ){
-            rectTransform = transform.parent.GetComponent<RectTransform>();
+            // rectTransform = transform.parent.GetComponent<RectTransform>();
+            rectTransform = transform.GetComponent<RectTransform>();
+            startPosition = rectTransform.position;
+            // Debug.Log(rectTransform.position);
         }
         canvasGroup = GetComponent<CanvasGroup>();
 
@@ -36,9 +41,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,IE
         
         if(itemList.Count - 1 >= 0){
             item = itemList[itemList.Count - 1];
-            Debug.Log(item.itemType);
 
         }
+
+        
 
         
 
@@ -53,6 +59,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,IE
         rectTransform.SetAsLastSibling();
         UI_ItemDrag uI_ItemDrag = UI_ItemDrag.Instance;
         uI_ItemDrag.SetItem(item);
+
+        Answer_manager answer_Manager = Answer_manager.Instance;
+        ansBfCount = answer_Manager.getAnser().Count;
     }
     public void OnDrag(PointerEventData eventData){
         
@@ -60,18 +69,25 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,IE
     }
     public void OnEndDrag(PointerEventData eventData){
         
+        Debug.Log("OnEndDrag");
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         //TODO : start position
-        // rectTransform.anchoredPosition = startPosition;
+        
+
+        if (Answer_manager.Instance.getAnser().Count == ansBfCount )
+        {
+            rectTransform.anchoredPosition = startPosition;
+            
+        }
     }
     public void OnPointerDown(PointerEventData eventData){
         
     }
 
     public void OnInitializePotentialDrag(PointerEventData eventData){
-        startPosition = rectTransform.anchoredPosition;
-        Debug.Log(startPosition);
+        // startPosition = rectTransform.anchoredPosition;
+        // Debug.Log(startPosition);
     }
     
 }
