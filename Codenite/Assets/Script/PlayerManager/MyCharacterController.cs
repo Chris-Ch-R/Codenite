@@ -6,6 +6,7 @@ using Photon.Pun;
 public class MyCharacterController : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public PhotonView view;
 
     [Header("Character Info")]
     public float moveSpeed = 5f;
@@ -23,6 +24,8 @@ public class MyCharacterController : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>(); // this line error
         currentHealth = maxHealth;
         currentSpeed = moveSpeed;
+
+        view = GetComponent<PhotonView>();
     }
 
     public void Movement(Vector2 movement)
@@ -40,6 +43,7 @@ public class MyCharacterController : MonoBehaviour
     public void Shoot()
     {
         GameObject bullet = PhotonNetwork.Instantiate(bulletPrefab.name, firePoint.position , firePoint.rotation);
+        bullet.GetComponent<Bullet>().SetOwnerViewID(view.ViewID);
         attackAnimator.SetTrigger("IsAttack");
     }
 
@@ -61,10 +65,17 @@ public class MyCharacterController : MonoBehaviour
     {
         currentSpeed = moveSpeed;
     }
+
+    [PunRPC]
+    void getItem(string playername)
+    {
+        Debug.Log(playername + " Get item");
+    }
     
     [PunRPC]
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
     }
+
 }

@@ -12,6 +12,7 @@ public class MonsterManager : MonoBehaviour
 
     [Header("Object Manager")]
     public MonsterController monster;
+    public float respawnTime = 10f;
     PhotonView view;
     bool reset = false;
 
@@ -28,14 +29,14 @@ public class MonsterManager : MonoBehaviour
     {
         if (view.IsMine)
         {
-            if(monster.IsInMoveRange() && monster.IsChase() && !monster.IsLowHealth() && !reset)
+            if(monster.IsInMoveRange() && monster.IsChase() && !reset)
             {
                 monster.chasing();
             }
-            else if(monster.IsLowHealth() && monster.IsChase())
-            {
-                monster.retreat();
-            }
+            // else if(monster.IsLowHealth() && monster.IsChase())
+            // {
+            //     monster.retreat();
+            // }
             else if(monster.IsInHome(0.3f))
             {
                 reset = false;
@@ -60,7 +61,7 @@ public class MonsterManager : MonoBehaviour
     private void killSelf()
     {
         gameObject.SetActive(false);
-        Invoke("respawn", 5);
+        Invoke("respawn", respawnTime);
     }
 
     private void respawn()

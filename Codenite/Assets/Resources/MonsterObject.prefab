@@ -49,6 +49,7 @@ MonoBehaviour:
   HealthBar: {fileID: 8808802939261651289}
   PlayerNameText: {fileID: 8808802938977611075}
   monster: {fileID: 2049681533283634009}
+  respawnTime: 10
 --- !u!114 &6254798254545219378
 MonoBehaviour:
   m_ObjectHideFlags: 0

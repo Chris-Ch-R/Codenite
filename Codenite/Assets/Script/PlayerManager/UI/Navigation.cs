@@ -1,33 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-
-public class MonsterAI : MonoBehaviour
+public class Navigation : MonoBehaviour
 {
-    GameObject target;
-    public float chaseRadius = 4f;
-    // Start is called before the first frame update
-    private NavMeshAgent agent;
-    void Start()
-    {
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-    }
-
+    public Rigidbody2D rb;
+    public string Tag;
+    private GameObject target;
     // Update is called once per frame
     void Update()
     {
-        target = FindClosestTarget("Player");
-        if(target)
-        {
-            
-            agent.SetDestination(target.transform.position);
-        }
+        target = FindClosestTarget(Tag);
+        Rotation(target.transform.position);
     }
 
+    public void Rotation(Vector2 target)
+    {
+        Vector2 lookDir = target - rb.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 360f;
+        rb.rotation = angle;
+    }
     public GameObject FindClosestTarget(string tag)
     {
         float distanceToClosestTarget = Mathf.Infinity;
@@ -36,7 +28,7 @@ public class MonsterAI : MonoBehaviour
         foreach (GameObject target in allTarget)
         {
             float distance = Vector2.Distance(target.transform.position, transform.position);
-            if (distance < chaseRadius && distance < distanceToClosestTarget)
+            if (distance < distanceToClosestTarget)
             {
                 distanceToClosestTarget = distance;
                 closestTarget = target;
