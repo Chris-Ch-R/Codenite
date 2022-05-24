@@ -725,6 +725,22 @@ PrefabInstance:
       propertyPath: m_BaseOffset
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6790121372465318977, guid: 14925e741febb664d8c7035bb5b67fdd, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6790121372465318977, guid: 14925e741febb664d8c7035bb5b67fdd, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6790121372465318977, guid: 14925e741febb664d8c7035bb5b67fdd, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6790121372465318977, guid: 14925e741febb664d8c7035bb5b67fdd, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6790121372465318979, guid: 14925e741febb664d8c7035bb5b67fdd, type: 3}
       propertyPath: m_Name
       value: Zombie

@@ -9,7 +9,6 @@ public class Zone : MonoBehaviour
     public Collider2D door;
     private int currentPlayerInZone;
     private void Update() {
-        Debug.Log(currentPlayerInZone);
         if(currentPlayerInZone >= limitPlayerInZone)
         {
             door.isTrigger = false;

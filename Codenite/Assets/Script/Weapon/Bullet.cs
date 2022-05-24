@@ -26,12 +26,13 @@ public class Bullet : MonoBehaviourPun
             {
                 PhotonView target = collision.gameObject.GetComponent<PhotonView>();
                 target.RPC("TakeDamage", RpcTarget.All, bulletDamage);
-
+                
+                MonsterController monster = collision.gameObject.GetComponent<MonsterController>();
                 //getItem
-                if(collision.gameObject.GetComponent<MonsterController>().Isdead())
+                if(monster.Isdead())
                 {
                     PhotonView player = PhotonView.Find(OwnerView);
-                    player.RPC("getItem", RpcTarget.All, view.Owner.NickName);
+                    player.RPC("getItem", RpcTarget.All, view.Owner.NickName, monster.GetItem());
                 }
             }
         }

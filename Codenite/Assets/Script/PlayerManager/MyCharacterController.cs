@@ -67,9 +67,9 @@ public class MyCharacterController : MonoBehaviour
     }
 
     [PunRPC]
-    void getItem(string playername)
+    void getItem(string playername, string itemName)
     {
-        Debug.Log(playername + " Get item");
+        Debug.Log(playername + " Get item : " + itemName);
     }
     
     [PunRPC]

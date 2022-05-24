@@ -22,6 +22,7 @@ public class MonsterController : MonoBehaviour
     public Animator attackAnimator;
     private Vector2 spawnPosition;
     private NavMeshAgent agent;
+    private string item = "";
     private void Start()
     {
         inti();
@@ -57,6 +58,16 @@ public class MonsterController : MonoBehaviour
     public void SetSpeed(float speed)
     {
         currentSpeed = speed;
+    }
+
+    public void SetItemName(string itemName)
+    {
+        item = itemName;
+    }
+
+    public string GetItem()
+    {
+        return item;
     }
 
     public void ResetSpeed()
