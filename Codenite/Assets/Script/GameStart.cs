@@ -6,7 +6,7 @@ using Photon.Pun;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 
-public class Spawner : MonoBehaviour
+public class GameStart : MonoBehaviour
 {
     [Header("SpawnTileMap Option")]
     public int monsterInEachRoom = 6;
@@ -19,6 +19,8 @@ public class Spawner : MonoBehaviour
     public Tilemap[] monsterSpawnList;
     public Text[] itemName;
     public GameObject MonsterPrefab;
+
+    private GameObject player;
     private void Start()
     {
         //spawn player by user id to index of spwanpoint
@@ -26,7 +28,7 @@ public class Spawner : MonoBehaviour
         List<Vector3> availablePlaces = FindLocationsOfTiles(playerSpawnpoint);
         int playerID = PhotonNetwork.LocalPlayer.ActorNumber;
         Vector2 randomPosition = new Vector2(availablePlaces[playerID - 1].x + 0.5f, availablePlaces[playerID - 1].y + 0.5f);
-        SpawnObject(playerPrefab, randomPosition);
+        player = SpawnObject(playerPrefab, randomPosition);
 
         if (PhotonNetwork.IsMasterClient)
         {
@@ -59,7 +61,7 @@ public class Spawner : MonoBehaviour
             }
         }
     }
-
+    
     public GameObject SpawnObject(GameObject prefab, Vector2 position)
     {
         GameObject unit = PhotonNetwork.Instantiate(prefab.name, position, Quaternion.identity);

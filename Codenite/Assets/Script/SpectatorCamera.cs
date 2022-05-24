@@ -13,14 +13,11 @@ public class SpectatorCamera : MonoBehaviour
     void Start()
     {
         Players = FindActiveObject(GameObject.FindGameObjectsWithTag(target));
-                Debug.Log("init player list");
-
     }
 
     void LateUpdate()
     {
         Players = FindActiveObject(GameObject.FindGameObjectsWithTag(target));
-        Debug.Log("update player list");
     }
     // Update is called once per frame
     void Update()

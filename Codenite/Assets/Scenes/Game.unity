@@ -149,10 +149,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3797930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a239d886df0c9714e921f661d094e0ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a59f82bbe58b324bb680b17cdc5d203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   monsterInEachRoom: 6
+  countDownBefore: 3
   playerSpawnpoint: {fileID: 1139177100}
   playerPrefab: {fileID: 2917494125973516194, guid: 6cd70e27f4cd7f34ea59272c17ea9fc7, type: 3}
   monsterSpawnList:
@@ -357,7 +358,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.21176472, g: 0.6627451, b: 0.25490198, a: 1}
+  m_BackGroundColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
