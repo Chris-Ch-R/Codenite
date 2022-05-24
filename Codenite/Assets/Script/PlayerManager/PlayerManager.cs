@@ -48,6 +48,10 @@ public class PlayerManager : MonoBehaviour
             {
                 Player.Shoot();
             }
+            if(Input.GetButtonDown("Fire2"))
+            {
+                Player.smiling();
+            }
         }
         HealthBar.SetHealth(Player.currentHealth);
     }

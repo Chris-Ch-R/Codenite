@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 
 public class MyCharacterController : MonoBehaviour
@@ -13,17 +14,25 @@ public class MyCharacterController : MonoBehaviour
     float currentSpeed;
     public int maxHealth = 100;
     public int currentHealth;
+    public int smileMaxValue = 5;
+    public int smileCurrentValue;
 
     [Header("Character weapon")]
     public Transform firePoint;
     public GameObject bulletPrefab;
     public Animator attackAnimator;
 
+    [Header("Character ui")]
+    public Image pleaseWait;
+    public SmileBar smileBar;
+
+
     private void Start()
     {
         rb = this.GetComponent<Rigidbody2D>(); // this line error
         currentHealth = maxHealth;
         currentSpeed = moveSpeed;
+        smileCurrentValue = 0;
 
         view = GetComponent<PhotonView>();
     }
@@ -78,4 +87,20 @@ public class MyCharacterController : MonoBehaviour
         currentHealth -= damage;
     }
 
+
+    //UI setting
+
+    public void SetplaseWait(bool active)
+    {
+        pleaseWait.gameObject.SetActive(active);
+    }
+
+    public void smiling()
+    {
+        smileCurrentValue++;
+        smileBar.SetValue(smileCurrentValue);
+
+        if(smileCurrentValue >= smileMaxValue)
+            smileCurrentValue = -1;
+    }
 }
