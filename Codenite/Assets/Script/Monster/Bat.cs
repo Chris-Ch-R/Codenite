@@ -15,7 +15,6 @@ public class Bat : Monster
         if (target)
         {
             Rotation(target.transform.position);
-
             // slow down
             Shoot();
         }

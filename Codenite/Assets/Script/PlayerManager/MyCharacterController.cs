@@ -17,6 +17,8 @@ public class MyCharacterController : MonoBehaviour
     public int smileMaxValue = 5;
     public int smileCurrentValue;
 
+    public float Maxcharge = 5f;
+
     [Header("Character weapon")]
     public Transform firePoint;
     public GameObject bulletPrefab;
@@ -49,9 +51,9 @@ public class MyCharacterController : MonoBehaviour
         rb.rotation = angle;
     }
 
-    public void Shoot(float holdingTime, float time)
+    public void Shoot(float holdingTime)
     {
-        if(holdingTime >= time)
+        if(holdingTime >= Maxcharge)
         {
             GameObject bullet = PhotonNetwork.Instantiate(bulletPrefab.name, firePoint.position , firePoint.rotation);
             bullet.GetComponent<Bullet>().SetOwnerViewID(view.ViewID);

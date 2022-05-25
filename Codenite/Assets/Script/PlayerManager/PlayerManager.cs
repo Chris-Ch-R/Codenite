@@ -94,7 +94,7 @@ public class PlayerManager : MonoBehaviour
             {
                 // release, Launch!!
                 float holdDownTime = Time.time - holdDownStartTime;
-                Player.Shoot(holdDownTime, 5.0f);
+                Player.Shoot(holdDownTime);
             }
 
 
