@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviourPun
                 PhotonView target = collision.gameObject.GetComponent<PhotonView>();
                 target.RPC("TakeDamage", RpcTarget.All, bulletDamage);
                 
-                MonsterController monster = collision.gameObject.GetComponent<MonsterController>();
+                Monster monster = collision.gameObject.GetComponent<Monster>();
                 //getItem
                 if(monster.Isdead())
                 {

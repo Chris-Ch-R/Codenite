@@ -45,7 +45,7 @@ public class GameStart : MonoBehaviour
                         Vector2 randomMonsterPosition = new Vector2(availablePlaces[position].x + 0.5f, availablePlaces[position].y + 0.5f);
                         GameObject monster = SpawnObject(MonsterPrefab, randomMonsterPosition);
 
-                        monster.GetComponentInChildren<MonsterController>().SetItemName(itemName[n].text);
+                        monster.GetComponentInChildren<Monster>().SetItemName(itemName[n].text);
                         
                         Placed.Add(availablePlaces[position]);
                         i++;

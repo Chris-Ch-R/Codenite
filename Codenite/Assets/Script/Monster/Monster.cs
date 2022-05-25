@@ -4,26 +4,31 @@ using UnityEngine;
 using UnityEngine.AI;
 using Photon.Pun;
 
-public class MonsterController : MonoBehaviour
+public class Monster : MonoBehaviour
 {
     public Rigidbody2D rb;
 
     [Header("Character Info")]
     public string monsterName;
     public float moveSpeed = 2f;
-    float currentSpeed;
+    private float currentSpeed;
+
     public int maxHealth = 50;
     public int currentHealth;
+
     public float chaseRadius;
     public float moveRadius;
+
     public LayerMask whatIsPlayer;
 
     [Header("Character weapon")]
     public Animator attackAnimator;
+
     private Vector2 spawnPosition;
     private NavMeshAgent agent;
     private string item = "";
-    private void Start()
+
+    private void Start() 
     {
         inti();
         agent = GetComponent<NavMeshAgent>();
@@ -41,6 +46,7 @@ public class MonsterController : MonoBehaviour
         spawnPosition = rb.transform.position;
     }
 
+    //Action
     public void MoveTo(Vector3 target)
     {
         Vector3 dir = target - transform.position;
@@ -55,70 +61,7 @@ public class MonsterController : MonoBehaviour
         rb.rotation = angle;
     }
 
-    public void SetSpeed(float speed)
-    {
-        currentSpeed = speed;
-    }
-
-    public void SetItemName(string itemName)
-    {
-        item = itemName;
-    }
-
-    public string GetItem()
-    {
-        return item;
-    }
-
-    public void ResetSpeed()
-    {
-        currentSpeed = moveSpeed;
-    }
-
-    public bool IsInMoveRange()
-    {
-        return Vector3.Distance(spawnPosition, rb.position) <= moveRadius;
-    }
-
-    public bool IsInHome(float offset)
-    {
-        return Vector3.Distance(spawnPosition, rb.position) <= offset;
-    }
-
-    public bool IsChase()
-    {
-        bool isInChaseRange = Physics2D.OverlapCircle(transform.position, chaseRadius, whatIsPlayer);
-        return isInChaseRange;
-    }
-
-    public bool IsLowHealth()
-    {
-        return currentHealth <= maxHealth / 3;
-    }
-
-    public bool Isdead()
-    {
-        return currentHealth <= 0;
-    }
-
-    public GameObject FindClosestTarget(string tag)
-    {
-        float distanceToClosestTarget = Mathf.Infinity;
-        GameObject closestTarget = null;
-        GameObject[] allTarget = GameObject.FindGameObjectsWithTag(tag);
-        foreach (GameObject target in allTarget)
-        {
-            float distance = Vector2.Distance(target.transform.position, transform.position);
-            if (distance < chaseRadius && distance < distanceToClosestTarget)
-            {
-                distanceToClosestTarget = distance;
-                closestTarget = target;
-            }
-        }
-        return closestTarget;
-    }
-
-    public void chasing()
+    public virtual void chasing()
     {
         GameObject target = FindClosestTarget("Player");
         if (target)
@@ -127,14 +70,12 @@ public class MonsterController : MonoBehaviour
             Rotation(target.transform.position);
         }
     }
-
     public void goHome()
     {
         ResetSpeed();
         agent.SetDestination(spawnPosition);
         Rotation(spawnPosition);
     }
-
     public void retreat()
     {
         GameObject objectTarget = FindClosestTarget("Player");
@@ -154,7 +95,6 @@ public class MonsterController : MonoBehaviour
             rb.rotation = angle;
         }
     }
-
     public void respawn()
     {
         currentHealth = maxHealth;
@@ -162,8 +102,71 @@ public class MonsterController : MonoBehaviour
         rb.transform.position = spawnPosition;
     }
 
+    //SET
+    public void SetSpeed(float speed)
+    {
+        currentSpeed = speed;
+    }
+
+    public void SetItemName(string itemName)
+    {
+        item = itemName;
+    }
+    public void ResetSpeed()
+    {
+        currentSpeed = moveSpeed;
+    }
+
+    //GET
+    public string GetItem()
+    {
+        return item;
+    }
+    public bool IsInMoveRange()
+    {
+        return Vector3.Distance(spawnPosition, rb.position) <= moveRadius;
+    }
+
+    public bool IsInHome(float offset)
+    {
+        return Vector3.Distance(spawnPosition, rb.position) <= offset;
+    }
+
+    public bool IsChase()
+    {
+        bool isInChaseRange = Physics2D.OverlapCircle(transform.position, chaseRadius, whatIsPlayer);
+        return isInChaseRange;
+    }
+    public bool IsLowHealth()
+    {
+        return currentHealth <= maxHealth / 3;
+    }
+
+    public bool Isdead()
+    {
+        return currentHealth <= 0;
+    }
+
+    //method
+    public GameObject FindClosestTarget(string tag)
+    {
+        float distanceToClosestTarget = Mathf.Infinity;
+        GameObject closestTarget = null;
+        GameObject[] allTarget = GameObject.FindGameObjectsWithTag(tag);
+        foreach (GameObject target in allTarget)
+        {
+            float distance = Vector2.Distance(target.transform.position, transform.position);
+            if (distance < chaseRadius && distance < distanceToClosestTarget)
+            {
+                distanceToClosestTarget = distance;
+                closestTarget = target;
+            }
+        }
+        return closestTarget;
+    }
+
     [PunRPC]
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
     }

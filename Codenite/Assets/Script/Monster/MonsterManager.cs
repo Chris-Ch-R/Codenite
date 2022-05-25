@@ -11,7 +11,7 @@ public class MonsterManager : MonoBehaviour
     public Text PlayerNameText;
 
     [Header("Object Manager")]
-    public MonsterController monster;
+    public Monster monster;
     public float respawnTime = 10f;
     PhotonView view;
     bool reset = false;

@@ -8,7 +8,6 @@ public class PlayerManager : MonoBehaviour
 {
     [Header("Camera Manager")]
     public Camera mainCamera;
-    private float zoomFactor = 3f;
     public float zoomLerpSpeed = 10;
     public float MaxZoom = 40f;
     public float MinZoom = 5f;
