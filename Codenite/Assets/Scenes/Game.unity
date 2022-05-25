@@ -153,7 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterInEachRoom: 6
-  countDownBefore: 3
   playerSpawnpoint: {fileID: 1139177100}
   playerPrefab: {fileID: 2917494125973516194, guid: 6cd70e27f4cd7f34ea59272c17ea9fc7, type: 3}
   monsterSpawnList:
@@ -196,7 +195,7 @@ GameObject:
   - component: {fileID: 4736067}
   - component: {fileID: 4736068}
   - component: {fileID: 4736069}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Name5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 17826121}
   - component: {fileID: 17826122}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +431,7 @@ GameObject:
   - component: {fileID: 39507800}
   - component: {fileID: 39507799}
   - component: {fileID: 39507798}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,7 +530,7 @@ GameObject:
   - component: {fileID: 96568519}
   - component: {fileID: 96568518}
   - component: {fileID: 96568517}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Name6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 139501627}
   - component: {fileID: 139501628}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -669,7 +668,7 @@ GameObject:
   - component: {fileID: 162313971}
   - component: {fileID: 162313970}
   - component: {fileID: 162313969}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Room5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4456,7 +4455,7 @@ GameObject:
   - component: {fileID: 223662034}
   - component: {fileID: 223662033}
   - component: {fileID: 223662032}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4556,7 +4555,7 @@ GameObject:
   - component: {fileID: 418820271}
   - component: {fileID: 418820270}
   - component: {fileID: 418820272}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32742,7 +32741,7 @@ GameObject:
   - component: {fileID: 532647909}
   - component: {fileID: 532647910}
   - component: {fileID: 532647911}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Name4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32822,7 +32821,7 @@ GameObject:
   - component: {fileID: 613308919}
   - component: {fileID: 613308918}
   - component: {fileID: 613308917}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32988,7 +32987,7 @@ GameObject:
   - component: {fileID: 798845402}
   - component: {fileID: 798845404}
   - component: {fileID: 798845405}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38318,7 +38317,7 @@ GameObject:
   - component: {fileID: 812821098}
   - component: {fileID: 812821097}
   - component: {fileID: 812821099}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38394,7 +38393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 865560537}
   - component: {fileID: 865560538}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38519,7 +38518,7 @@ GameObject:
   - component: {fileID: 921863037}
   - component: {fileID: 921863036}
   - component: {fileID: 921863035}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38617,7 +38616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 983945793}
   - component: {fileID: 983945794}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38675,7 +38674,7 @@ GameObject:
   - component: {fileID: 1038407684}
   - component: {fileID: 1038407686}
   - component: {fileID: 1038407685}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38887,7 +38886,7 @@ GameObject:
   - component: {fileID: 1041050211}
   - component: {fileID: 1041050213}
   - component: {fileID: 1041050212}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39101,7 +39100,7 @@ GameObject:
   - component: {fileID: 1045927645}
   - component: {fileID: 1045927644}
   - component: {fileID: 1045927647}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41440,7 +41439,7 @@ GameObject:
   - component: {fileID: 1080891502}
   - component: {fileID: 1080891501}
   - component: {fileID: 1080891500}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Room3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45228,7 +45227,7 @@ GameObject:
   - component: {fileID: 1111636089}
   - component: {fileID: 1111636088}
   - component: {fileID: 1111636087}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Room1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49204,7 +49203,7 @@ GameObject:
   - component: {fileID: 1139177098}
   - component: {fileID: 1139177100}
   - component: {fileID: 1139177099}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SpawnPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49538,7 +49537,7 @@ GameObject:
   - component: {fileID: 1163974475}
   - component: {fileID: 1163974474}
   - component: {fileID: 1163974473}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Room6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53324,7 +53323,7 @@ GameObject:
   - component: {fileID: 1254907067}
   - component: {fileID: 1254907069}
   - component: {fileID: 1254907068}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56002,7 +56001,7 @@ GameObject:
   - component: {fileID: 1456609659}
   - component: {fileID: 1456609661}
   - component: {fileID: 1456609660}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56216,7 +56215,7 @@ GameObject:
   - component: {fileID: 1510904661}
   - component: {fileID: 1510904660}
   - component: {fileID: 1510904659}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Room4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60196,7 +60195,7 @@ GameObject:
   - component: {fileID: 1552222473}
   - component: {fileID: 1552222475}
   - component: {fileID: 1552222474}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60409,7 +60408,7 @@ GameObject:
   - component: {fileID: 1623656754}
   - component: {fileID: 1623656753}
   - component: {fileID: 1623656752}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60509,7 +60508,7 @@ GameObject:
   - component: {fileID: 1679586492}
   - component: {fileID: 1679586491}
   - component: {fileID: 1679586490}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60607,7 +60606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1704842660}
   - component: {fileID: 1704842661}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60665,7 +60664,7 @@ GameObject:
   - component: {fileID: 1713370019}
   - component: {fileID: 1713370021}
   - component: {fileID: 1713370020}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Name1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60744,7 +60743,7 @@ GameObject:
   - component: {fileID: 1738209310}
   - component: {fileID: 1738209311}
   - component: {fileID: 1738209312}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Name3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60825,7 +60824,7 @@ GameObject:
   - component: {fileID: 1849672832}
   - component: {fileID: 1849672831}
   - component: {fileID: 1849672830}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Room2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64611,7 +64610,7 @@ GameObject:
   - component: {fileID: 1911144349}
   - component: {fileID: 1911144350}
   - component: {fileID: 1911144351}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64681,7 +64680,7 @@ GameObject:
   - component: {fileID: 1970373781}
   - component: {fileID: 1970373782}
   - component: {fileID: 1970373783}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Name2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64760,7 +64759,7 @@ GameObject:
   - component: {fileID: 2048342850}
   - component: {fileID: 2048342852}
   - component: {fileID: 2048342851}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64972,7 +64971,7 @@ GameObject:
   - component: {fileID: 2109464597}
   - component: {fileID: 2109464595}
   - component: {fileID: 2109464596}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner6
   m_TagString: Untagged
   m_Icon: {fileID: 0}

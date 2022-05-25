@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour
     [Header("UI Manager")]
     public GameObject PlayerCamera;
     public GameObject MinimapCamera;
+    public GameObject WorldMap;
     public HealthBar HealthBar;
     public Text PlayerNameText;
     public Text countDownText;
@@ -37,6 +38,7 @@ public class PlayerManager : MonoBehaviour
             mainCamera.GetComponent<CameraFollow>().SetOffset(new Vector3(0,0,-2));
             PlayerCamera.SetActive(true);
             MinimapCamera.SetActive(true);
+            WorldMap.SetActive(false);
             PlayerNameText.text = PhotonNetwork.NickName;
         }
         else
@@ -94,6 +96,17 @@ public class PlayerManager : MonoBehaviour
                 // release, Launch!!
                 float holdDownTime = Time.time - holdDownStartTime;
                 Player.Shoot(holdDownTime, 5.0f);
+            }
+
+
+
+            if(Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.Tab))
+            {
+                WorldMap.SetActive(true);
+            }
+            if(Input.GetKeyUp(KeyCode.M) || Input.GetKeyUp(KeyCode.Tab))
+            {
+                WorldMap.SetActive(false);
             }
         }
         HealthBar.SetHealth(Player.currentHealth);
