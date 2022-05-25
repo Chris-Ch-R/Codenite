@@ -49,11 +49,15 @@ public class MyCharacterController : MonoBehaviour
         rb.rotation = angle;
     }
 
-    public void Shoot()
+    public void Shoot(float holdingTime, float time)
     {
-        GameObject bullet = PhotonNetwork.Instantiate(bulletPrefab.name, firePoint.position , firePoint.rotation);
-        bullet.GetComponent<Bullet>().SetOwnerViewID(view.ViewID);
-        attackAnimator.SetTrigger("IsAttack");
+        if(holdingTime >= time)
+        {
+            GameObject bullet = PhotonNetwork.Instantiate(bulletPrefab.name, firePoint.position , firePoint.rotation);
+            bullet.GetComponent<Bullet>().SetOwnerViewID(view.ViewID);
+            attackAnimator.SetTrigger("IsAttack");
+        }
+        smileBar.SetValue(0);
     }
 
     public bool IsDead()
@@ -95,12 +99,11 @@ public class MyCharacterController : MonoBehaviour
         pleaseWait.gameObject.SetActive(active);
     }
 
-    public void smiling()
+    public void smiling(float currentTime)
     {
-        smileCurrentValue++;
-        smileBar.SetValue(smileCurrentValue);
-
-        if(smileCurrentValue >= smileMaxValue)
-            smileCurrentValue = -1;
+        Debug.Log(currentTime);
+        int smileGauge = Mathf.FloorToInt(currentTime % 60);
+        if(smileGauge <= smileMaxValue)
+            smileBar.SetValue(smileGauge);
     }
 }

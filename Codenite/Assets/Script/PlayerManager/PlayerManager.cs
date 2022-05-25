@@ -26,6 +26,7 @@ public class PlayerManager : MonoBehaviour
     PhotonView view;
     Vector2 movement;
     Vector2 mousePos;
+    float holdDownStartTime;
     bool IsGameStart = true;
     float currentZoom;
     private void Start()
@@ -53,13 +54,14 @@ public class PlayerManager : MonoBehaviour
         if(IsGameStart)
         {
             
-            Invoke("ZoomIn", CountDown);
+            Invoke("ZoomIn", CountDown - 0.5f);
             if(CountDown > 0)
             {
                 CountDown -= Time.deltaTime;
                 updateTime(CountDown);
             }
-            return;
+            else
+                return;
         }
         else
         {
@@ -71,13 +73,26 @@ public class PlayerManager : MonoBehaviour
             mousePos = PlayerCamera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
             Player.Movement(movement);
             Player.Rotation(mousePos);
+
+            //Change and Shoot
             if(Input.GetButtonDown("Fire1"))
             {
-                Player.Shoot();
+                //start holding
+                holdDownStartTime = Time.time;
             }
-            if(Input.GetButtonDown("Fire2"))
+
+            if(Input.GetButton("Fire1"))
             {
-                Player.smiling();
+                // still down
+                float holdDownTime = Time.time - holdDownStartTime;
+                Player.smiling(holdDownTime);
+            }
+
+            if(Input.GetButtonUp("Fire1"))
+            {
+                // release, Launch!!
+                float holdDownTime = Time.time - holdDownStartTime;
+                Player.Shoot(holdDownTime, 5.0f);
             }
         }
         HealthBar.SetHealth(Player.currentHealth);
@@ -111,6 +126,5 @@ public class PlayerManager : MonoBehaviour
     {
         currentTime += 1;
         countDownText.text = Mathf.FloorToInt(currentTime % 60) + "";
-        Debug.Log(currentTime);
     }
 }
