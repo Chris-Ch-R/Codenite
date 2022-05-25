@@ -54,13 +54,14 @@ public class PlayerManager : MonoBehaviour
         if(IsGameStart)
         {
             
-            Invoke("ZoomIn", CountDown - 0.5f);
+            Invoke("ZoomIn", CountDown);
             if(CountDown > 0)
             {
                 CountDown -= Time.deltaTime;
                 updateTime(CountDown);
             }
             else
+                IsGameStart = false;
                 return;
         }
         else
@@ -117,8 +118,6 @@ public class PlayerManager : MonoBehaviour
         currentZoom --;
         currentZoom = Mathf.Clamp(currentZoom, MinZoom, MaxZoom);
         mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, currentZoom, Time.deltaTime * zoomLerpSpeed);
-        IsGameStart = false;
-
         mainCamera.GetComponent<CameraFollow>().SetOffset(new Vector3(0,0,-1));
     }
 

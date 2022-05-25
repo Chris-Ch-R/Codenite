@@ -101,9 +101,8 @@ public class MyCharacterController : MonoBehaviour
 
     public void smiling(float currentTime)
     {
-        Debug.Log(currentTime);
-        int smileGauge = Mathf.FloorToInt(currentTime % 60);
+        int smileGauge = Mathf.FloorToInt(currentTime);
         if(smileGauge <= smileMaxValue)
-            smileBar.SetValue(smileGauge);
+            smileBar.SetValue(currentTime);
     }
 }
