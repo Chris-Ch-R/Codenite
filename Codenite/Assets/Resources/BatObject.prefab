@@ -718,6 +718,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -406538874171895304, guid: dc8d88dfc8ba8344ab487c1688891680, type: 3}
+      propertyPath: fireRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -406538874171895304, guid: dc8d88dfc8ba8344ab487c1688891680, type: 3}
       propertyPath: chaseRadius
       value: 5
       objectReference: {fileID: 0}

@@ -22,7 +22,7 @@ public class Bat : Monster
         if (target)
         {
             Rotation(target.transform.position);
-           
+
             //in fireRange
             if(Vector2.Distance(target.transform.position, rb.position) - fireRange <= offset)
             {
@@ -43,7 +43,7 @@ public class Bat : Monster
     {
         if(Time.time > nextTime)
         {
-            nextTime = nextTime + fireRate;
+            nextTime = Time.time + fireRate;
             GameObject bullet = PhotonNetwork.Instantiate(bulletPrefab.name, firePoint.position , firePoint.rotation);
         }
     }

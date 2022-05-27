@@ -126,11 +126,12 @@ public class MyCharacterController : MonoBehaviour
     }
 
     private void initItemList(){
+        //TODO replace space
         itemList.Add(new Item{ itemType = Item.ItemType.FRAGMENT1, value = "Count <= 1"} );
-        itemList.Add(new Item{ itemType = Item.ItemType.FRAGMENT2, value = "Count--"} );
+        itemList.Add(new Item{ itemType = Item.ItemType.FRAGMENT2, value = "Count = 1"} );
         itemList.Add(new Item{ itemType = Item.ItemType.FRAGMENT3, value = "Count ++"} );
-        itemList.Add(new Item{ itemType = Item.ItemType.FRAGMENT4, value = "Count == 1"} );
-        itemList.Add(new Item{ itemType = Item.ItemType.FRAGMENT5, value = "Count >= 1"} );
+        itemList.Add(new Item{ itemType = Item.ItemType.FRAGMENT4, value = "Count >= 1"} );
+        itemList.Add(new Item{ itemType = Item.ItemType.FRAGMENT5, value = "Count <= 10"} );
         itemList.Add(new Item{ itemType = Item.ItemType.FRAGMENT6, value = "Count = 0"} );
         
     }

@@ -230,7 +230,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: 0
 --- !u!114 &7991901807207842767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,7 +470,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 3575
+    m_Bits: 7671
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2341,6 +2341,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapIcon
       objectReference: {fileID: 0}
+    - target: {fileID: 6023268284393008459, guid: 9177788e4bdbfd748bd8891a11ac7ab3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6023268284864336908, guid: 9177788e4bdbfd748bd8891a11ac7ab3, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2387,7 +2391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6023268284864336909, guid: 9177788e4bdbfd748bd8891a11ac7ab3, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6023268284864336912, guid: 9177788e4bdbfd748bd8891a11ac7ab3, type: 3}
       propertyPath: cam
