@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 248371275613579734}
   - component: {fileID: 3781633811602385114}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 4223643013043753869}
   - component: {fileID: 3588855930736875668}
   - component: {fileID: 309416028361829314}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: PlayerName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 3215214331689804466}
   - component: {fileID: 7268540790720742130}
   - component: {fileID: 7204673446466032300}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 1021334349562031894}
   - component: {fileID: 6237701985294146279}
   - component: {fileID: 1420624205763161894}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Navigation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1339,7 +1339,7 @@ GameObject:
   - component: {fileID: 6065508093227249279}
   - component: {fileID: 5605884450810856904}
   - component: {fileID: 5980047707014290242}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1414,7 +1414,7 @@ GameObject:
   - component: {fileID: 1666206046489145317}
   - component: {fileID: 7829430198392523013}
   - component: {fileID: 5609857475346923063}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1549,7 +1549,7 @@ GameObject:
   - component: {fileID: 3891831464617099600}
   - component: {fileID: 4757618170426680885}
   - component: {fileID: 4834940042562722600}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: WorldUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1649,7 +1649,7 @@ GameObject:
   - component: {fileID: 581442404371904220}
   - component: {fileID: 5573043897980641751}
   - component: {fileID: 8074810067122770257}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: FollowPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1963,7 +1963,7 @@ GameObject:
   - component: {fileID: 7267723537960186780}
   - component: {fileID: 5902170944228442670}
   - component: {fileID: 7144941725138546959}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2379,6 +2379,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6023268284864336908, guid: 9177788e4bdbfd748bd8891a11ac7ab3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023268284864336909, guid: 9177788e4bdbfd748bd8891a11ac7ab3, type: 3}
+      propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023268284864336912, guid: 9177788e4bdbfd748bd8891a11ac7ab3, type: 3}

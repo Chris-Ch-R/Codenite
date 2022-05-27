@@ -25,7 +25,7 @@ public class Monster : MonoBehaviour
     public Animator attackAnimator;
 
     private Vector2 spawnPosition;
-    private NavMeshAgent agent;
+    protected NavMeshAgent agent;
     private string item = "";
 
     private void Start() 
@@ -114,6 +114,7 @@ public class Monster : MonoBehaviour
     }
     public void ResetSpeed()
     {
+        agent.isStopped = false;
         currentSpeed = moveSpeed;
     }
 

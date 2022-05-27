@@ -391,12 +391,15 @@ MonoBehaviour:
   moveSpeed: 4
   maxHealth: 50
   currentHealth: 0
-  chaseRadius: 10
-  moveRadius: 6
+  chaseRadius: 5
+  moveRadius: 7
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
   attackAnimator: {fileID: 1030958853407590950}
+  fireRate: 1
+  fireRange: 4.5
+  offset: 0.3
   firePoint: {fileID: 3408603141915706314}
   bulletPrefab: {fileID: 0}
 --- !u!114 &5043981831968325213
