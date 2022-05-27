@@ -11,10 +11,13 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,IE
 
     // public Vector3 StartPosition;
     [SerializeField] private Item item;
+    [SerializeField] private UI_Inventory ui_inventory;
 
     private Vector3 startPosition;
 
     int ansBfCount;
+
+    Inventory inventory;
 
     private void Awake(){
         if( rectTransform == null ){
@@ -36,23 +39,14 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,IE
             }
 
         }
-
-        List<Item> itemList = TestInventory.Instance.GetItemList();
-        
-        if(itemList.Count - 1 >= 0){
-            item = itemList[itemList.Count - 1];
-
-        }
-
-        
-
-        
-
-        
-
         
     }
     public void OnBeginDrag(PointerEventData eventData){
+        int itemIndex =  transform.parent.GetSiblingIndex() - 1;
+        
+        List<Item> itemList = ui_inventory.getInventory().GetItemList();
+        Debug.Log("itemList : " + itemList.Count);
+        item = itemList[itemIndex];
         
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;

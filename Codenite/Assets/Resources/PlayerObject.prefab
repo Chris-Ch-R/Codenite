@@ -2333,6 +2333,10 @@ PrefabInstance:
       propertyPath: pleaseWait
       value: 
       objectReference: {fileID: 5244486523656991690}
+    - target: {fileID: 3586386912217162053, guid: 9177788e4bdbfd748bd8891a11ac7ab3, type: 3}
+      propertyPath: uiInventory
+      value: 
+      objectReference: {fileID: 1446104026863036023}
     - target: {fileID: 5830851284720813533, guid: 9177788e4bdbfd748bd8891a11ac7ab3, type: 3}
       propertyPath: m_Name
       value: MapIcon

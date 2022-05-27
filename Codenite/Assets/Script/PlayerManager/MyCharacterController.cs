@@ -6,6 +6,9 @@ using Photon.Pun;
 
 public class MyCharacterController : MonoBehaviour
 {
+    [SerializeField] private UI_Inventory uiInventory;
+
+    private Inventory inventory ;
     public Rigidbody2D rb;
     public PhotonView view;
 
@@ -28,9 +31,12 @@ public class MyCharacterController : MonoBehaviour
     public Image pleaseWait;
     public SmileBar smileBar;
 
-
+    private List<Item> itemList;
     private void Start()
     {
+        itemList = new List<Item>();
+        initItemList();
+        inventory = Inventory.Instance;
         rb = this.GetComponent<Rigidbody2D>(); // this line error
         currentHealth = maxHealth;
         currentSpeed = moveSpeed;
@@ -84,6 +90,17 @@ public class MyCharacterController : MonoBehaviour
     [PunRPC]
     void getItem(string playername, string itemName)
     {
+        foreach(Item item  in itemList){
+            if (itemName.Equals(item.value))
+            {
+                inventory.AddItem(item); 
+                break;       
+            }
+
+        }
+        
+        uiInventory.SetInventory(inventory);
+
         Debug.Log(playername + " Get item : " + itemName);
     }
     
@@ -106,5 +123,15 @@ public class MyCharacterController : MonoBehaviour
         int smileGauge = Mathf.FloorToInt(currentTime);
         if(smileGauge <= smileMaxValue)
             smileBar.SetValue(currentTime);
+    }
+
+    private void initItemList(){
+        itemList.Add(new Item{ itemType = Item.ItemType.FRAGMENT1, value = "Count <= 1"} );
+        itemList.Add(new Item{ itemType = Item.ItemType.FRAGMENT2, value = "Count--"} );
+        itemList.Add(new Item{ itemType = Item.ItemType.FRAGMENT3, value = "Count ++"} );
+        itemList.Add(new Item{ itemType = Item.ItemType.FRAGMENT4, value = "Count == 1"} );
+        itemList.Add(new Item{ itemType = Item.ItemType.FRAGMENT5, value = "Count >= 1"} );
+        itemList.Add(new Item{ itemType = Item.ItemType.FRAGMENT6, value = "Count = 0"} );
+        
     }
 }
