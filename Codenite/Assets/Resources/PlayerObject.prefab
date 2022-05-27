@@ -657,7 +657,7 @@ MonoBehaviour:
   zoomLerpSpeed: 10
   MaxZoom: 40
   MinZoom: 5
-  CountDown: 10
+  CountDown: 5
   PlayerCamera: {fileID: 2445760721738084424}
   MinimapCamera: {fileID: 4768773777574689463}
   WorldMap: {fileID: 1112992497411560313}
