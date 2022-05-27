@@ -1,3 +1,6 @@
+
+using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,33 +19,16 @@ public class Inventory : MonoBehaviour
     }
 
     private List<Item> itemList  = new List<Item>();
+    private List<Item> tmpItemList  = new List<Item>();
+    private List<Item> tmp2 = new List<Item>();
 
-    // public Inventory(){
-    //     itemList = new List<Item>();
-
-    //     Item item1 = new Item {id =  0, itemType = Item.ItemType.Common , amount = 1 };
-    //     Item item2 = new Item {id =  1, itemType = Item.ItemType.Common , amount = 1 };
-    //     Item item3 = new Item {id =  2, itemType =Item.ItemType.Rare , amount = 1 };
-    //     Item item4 = new Item {id =  3, itemType =Item.ItemType.Epic , amount = 1 };
-    //     Item item5 = new Item {id =  4, itemType =Item.ItemType.Epic , amount = 1 };
-    //     // AddItem(item1);
-    //     AddItem(item2);
-    //     AddItem(item3);
-    //     AddItem(item4);
-    //     // AddItem(item5);
-    //     // RemoveItem(item5);
-    //     // AddItem(item5);
-    //     // AddItem(item5);
-
-
-        
-    // }
 
     public void AddItem(Item item)
     {
         if(itemList.Count <= 5){
 
             itemList.Add(item);
+            tmpItemList.Add(item);
         }
         else{
             Debug.Log("inventory full");
@@ -56,9 +42,20 @@ public class Inventory : MonoBehaviour
 
     }
 
+    public List<Item> getTmpItemList(){
+        return tmpItemList;
+
+    }
+
     public List<Item> GetItemList(){
         return itemList;
     }
+    public Inventory resetItemList(){
+        this.itemList.Clear();
+        itemList = tmpItemList.ToList();
+        return this;
+    }
+
 
 
 

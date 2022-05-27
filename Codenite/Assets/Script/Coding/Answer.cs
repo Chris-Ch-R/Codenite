@@ -14,7 +14,7 @@ public class Answer : MonoBehaviour
 
     private Answer_manager answer_Manager;
 
-    private string[] ans1 = {"count=1" , "count<=10" , "count++"};
+    private string[] ans1 = {"Count = 1" , "Count <= 10" , "Count ++"};
     
     public void checkAnswer(){
         answer_Manager = Answer_manager.Instance;
@@ -40,21 +40,8 @@ public class Answer : MonoBehaviour
     }
 
     public void resetAnswer(){
-        inventory = Inventory.Instance;
-        
-        Debug.Log(inventory.GetItemList().Count);
-
-        Item item1 = new Item {id =  0, itemType = Item.ItemType.Common , value = "count=1" };
-        Item item2 = new Item {id =  1, itemType =Item.ItemType.Rare , value = "count++" };
-        Item item3 = new Item {id =  2, itemType =Item.ItemType.Epic , value = "count<=10" };
-        inventory.AddItem(item1);
-        inventory.AddItem(item2);
-        inventory.AddItem(item3);
-        
-        
-        // inventory = inventory.GetItemList
+        inventory = uiInventory.getInventory().resetItemList();
         uiInventory.SetInventory(inventory);
-
         ui_coding = transform.parent.Find("UI_Coding");
         foreach (Transform child in ui_coding) {
               if(child.Find("Background")){

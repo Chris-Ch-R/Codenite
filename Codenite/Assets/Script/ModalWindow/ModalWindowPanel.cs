@@ -27,6 +27,7 @@ public class ModalWindowPanel : MonoBehaviour
 
     public void ShowMissonGUI(Sprite missionImage){
         transform.gameObject.SetActive(true);
+        box.gameObject.SetActive(true);
         errWindowBox.gameObject.SetActive(false);
         
         uiImage.sprite = missionImage;

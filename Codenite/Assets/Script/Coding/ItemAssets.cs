@@ -9,7 +9,10 @@ public class ItemAssets : MonoBehaviour
     private void Awake(){
         Instance = this;
     }
-    public Sprite common;
-    public Sprite rare;
-    public Sprite epic;
+    public Sprite fragment1;
+    public Sprite fragment2;
+    public Sprite fragment3;
+    public Sprite fragment4;
+    public Sprite fragment5;
+    public Sprite fragment6;
 }
