@@ -6,7 +6,11 @@ using UnityEngine.EventSystems;
 
 public class ItemSlot : MonoBehaviour,IDropHandler 
 {
+    private CanvasGroup canvasGroup;
 
+    private void Awake(){
+        canvasGroup = transform.Find("Background").GetComponent<CanvasGroup>();
+    }
     public Item slotItem;
     public void OnDrop(PointerEventData eventData){
         if(eventData.pointerDrag != null){
@@ -17,6 +21,7 @@ public class ItemSlot : MonoBehaviour,IDropHandler
             slotItem = item;
             Debug.Log(item.id);
 
+            canvasGroup.alpha = .75f;
             Answer_manager answer_Manager = Answer_manager.Instance;
             answer_Manager.addAnswer(this);
             // Debug.Log("ans list : " + answer_Manager.getAnser().Count);
