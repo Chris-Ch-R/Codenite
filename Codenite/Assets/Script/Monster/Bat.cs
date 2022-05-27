@@ -5,9 +5,15 @@ using Photon.Pun;
 
 public class Bat : Monster
 {
+    [Header("Fire")]
+    public float fireRate;
+
     [Header("Bullet")]
     public Transform firePoint;
     public GameObject bulletPrefab;
+
+    private float nextTime;
+    private float currentTime = 0;
 
     public override void chasing()
     {
@@ -16,7 +22,11 @@ public class Bat : Monster
         {
             Rotation(target.transform.position);
             // slow down
-            Shoot();
+            if(currentTime >= nextTime)
+            {
+                nextTime = nextTime + fireRate;
+                Shoot();
+            }
         }
     }
 

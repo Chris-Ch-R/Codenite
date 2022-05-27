@@ -710,6 +710,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 1898778949813286061}
     m_Modifications:
     - target: {fileID: -406538874171895304, guid: dc8d88dfc8ba8344ab487c1688891680, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 6255573149925378348}
+    - target: {fileID: -406538874171895304, guid: dc8d88dfc8ba8344ab487c1688891680, type: 3}
+      propertyPath: fireRate
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -406538874171895304, guid: dc8d88dfc8ba8344ab487c1688891680, type: 3}
+      propertyPath: chaseRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -406538874171895304, guid: dc8d88dfc8ba8344ab487c1688891680, type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 1935286528303195210, guid: dfe6e0398bb817442b5a389a18ff919d, type: 3}
@@ -770,6 +782,11 @@ PrefabInstance:
 --- !u!4 &6273265459570928322 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6046582645301660130, guid: dc8d88dfc8ba8344ab487c1688891680, type: 3}
+  m_PrefabInstance: {fileID: 353210774439371552}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &6255573149925378348 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5924091620731038220, guid: dc8d88dfc8ba8344ab487c1688891680, type: 3}
   m_PrefabInstance: {fileID: 353210774439371552}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &9132583573781770968 stripped
