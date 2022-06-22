@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   bulletDamage: 50
-  destroyTime: 2
+  destroyTime: 0.2
   view: {fileID: 6446915832666072436}
   OwnerView: 0
 --- !u!114 &6446915832666072436

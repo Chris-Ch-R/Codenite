@@ -32,8 +32,11 @@ public class MyCharacterController : MonoBehaviour
     public SmileBar smileBar;
 
     private List<Item> itemList;
+
+    private Vector2 startposition;
     private void Start()
     {
+        startposition = transform.position;
         itemList = new List<Item>();
         initItemList();
         inventory = Inventory.Instance;
@@ -84,6 +87,13 @@ public class MyCharacterController : MonoBehaviour
 
     public void ResetSpeed()
     {
+        currentSpeed = moveSpeed;
+    }
+
+    public void respawn()
+    {
+        transform.position = startposition;
+        currentHealth = maxHealth;
         currentSpeed = moveSpeed;
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
@@ -10,6 +11,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public InputField roomInputField;
     public GameObject lobbyPanel;
     public GameObject roomPanel;
+    public GameObject commingSoonPanel;
     public Text roomName;
     public Text numberPlayerText;
 
@@ -27,10 +29,12 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public GameObject playButton;
 
     [Header("Room Option")]
-    public int MaxPlayers = 1;
+    public int MaxPlayers = 20;
+    public int minPlayersToPlay = 1;
     public string Password;
     RoomOptions roomOptions;
     private void Start() {
+        PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.JoinLobby();
         roomPanel.SetActive(false);
         lobbyPanel.SetActive(true);
@@ -42,7 +46,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             playButton.SetActive(true);
 
             playButton.GetComponent<Button>().interactable = false;
-            if(PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
+            if(PhotonNetwork.CurrentRoom.PlayerCount >= minPlayersToPlay)
             {
                 playButton.GetComponent<Button>().interactable = true;
             }
@@ -61,6 +65,15 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public void SetMaxPlayer(int num_player)
     {
         MaxPlayers = num_player;
+    }
+
+    public void OnCilckComingSoon()
+    {
+        commingSoonPanel.SetActive(true);
+    }
+    public void OnClickClose()
+    {
+        commingSoonPanel.SetActive(false);
     }
     public void OnClickCreate()
     {
@@ -165,5 +178,15 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public void OnClickPlayButton(){
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.LoadLevel("Game");
+    }
+
+    public void OnClickLeave()
+    {
+        PhotonNetwork.Disconnect();
+    }
+
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        SceneManager.LoadScene("ConnectToServer");
     }
 }

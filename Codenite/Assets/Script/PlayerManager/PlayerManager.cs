@@ -118,9 +118,7 @@ public class PlayerManager : MonoBehaviour
     private void LateUpdate() {
         if(Player.IsDead() && view.IsMine)
         {
-            Debug.Log("i'm DEAD!!!");
-            gameObject.SetActive(false);
-            DisconnectRoom();
+            Player.respawn();
         }    
     }
 

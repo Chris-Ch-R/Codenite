@@ -6,7 +6,7 @@ using Photon.Pun;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 
-public class GameStart : MonoBehaviour
+public class GameStart : MonoBehaviourPunCallbacks
 {
     [Header("SpawnTileMap Option")]
     public int monsterInEachRoom = 6;
@@ -43,7 +43,7 @@ public class GameStart : MonoBehaviour
                     if (Placed.Contains(availablePlaces[position]) == false)
                     {
                         Vector2 randomMonsterPosition = new Vector2(availablePlaces[position].x + 0.5f, availablePlaces[position].y + 0.5f);
-                        GameObject monster = SpawnObject(MonsterPrefab, randomMonsterPosition);
+                        GameObject monster = SpawnMonster(MonsterPrefab, randomMonsterPosition);
 
                         monster.GetComponentInChildren<Monster>().SetItemName(itemName[n].text);
                         
@@ -68,6 +68,12 @@ public class GameStart : MonoBehaviour
         return unit;
     }
 
+    public GameObject SpawnMonster(GameObject prefab, Vector2 position)
+    {
+        GameObject unit = PhotonNetwork.InstantiateRoomObject(prefab.name, position, Quaternion.identity);
+        return unit;
+    }
+
     private List<Vector3> FindLocationsOfTiles(Tilemap tileMap)
     {
         List<Vector3> availablePlaces = new List<Vector3>(); // create a new list of vectors by doing...
@@ -85,5 +91,15 @@ public class GameStart : MonoBehaviour
             }
         }
         return availablePlaces;
+    }
+
+    public void OnClickDisconnect()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public override void OnLeftRoom()
+    {
+        SceneManager.LoadScene("ConnectToServer");
     }
 }

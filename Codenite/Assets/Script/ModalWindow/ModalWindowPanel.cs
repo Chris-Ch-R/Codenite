@@ -2,9 +2,12 @@ using System;
 using System.Windows;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class ModalWindowPanel : MonoBehaviour
+public class ModalWindowPanel : MonoBehaviourPunCallbacks
 {
     [SerializeField] private Transform box;
     [SerializeField] private Image uiImage;
@@ -18,11 +21,12 @@ public class ModalWindowPanel : MonoBehaviour
 
     public void Confirm(){
         Debug.Log("click");
-        transform.gameObject.SetActive(false);
-        tabGroup.objectToSwap[0].SetActive(false);
-        tabGroup.objectToSwap[1].SetActive(true);
+        // transform.gameObject.SetActive(false);
+        // tabGroup.objectToSwap[0].SetActive(false);
+        // tabGroup.objectToSwap[1].SetActive(true);
         // onConfirmAction?.Invoke();
         // Close();
+        PhotonNetwork.LeaveRoom();
     }
 
     public void ShowMissonGUI(Sprite missionImage){
@@ -47,5 +51,10 @@ public class ModalWindowPanel : MonoBehaviour
     public void ConfirmErr(){
         Debug.Log("click");
         transform.gameObject.SetActive(false);
+    }
+
+    public override void OnLeftRoom()
+    {
+        SceneManager.LoadScene("ConnectToServer");
     }
 }
