@@ -52,7 +52,7 @@ public class MonsterManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (monster.Isdead() && view.IsMine)
+        if (monster.Isdead())
         {
             killSelf();
         }
